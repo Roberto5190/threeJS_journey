@@ -1,0 +1,19 @@
+
+body{
+    background-color: #a9a9a9;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-family: Inter, sans-serif, Arial;
+    font-weight: 900;
+}
+
+.webgl{
+    border-radius: .75rem;
+}
