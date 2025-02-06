@@ -38,15 +38,25 @@ renderer.setSize(sizes.width, sizes.height)
 
 
 
+//Time
+let time = Date.now()
+
+
 //Animations
 const tick = () => {
 
+    //Time
+    const currentTime = Date.now()
+    const deltaTime = currentTime - time
+    time = currentTime
+
     // Update objects
-    cube.rotation.y += .01
+    cube.rotation.y += .001 * deltaTime
 
     // Render
     renderer.render(scene, camera)
 
     window.requestAnimationFrame(tick)
 }
+
 tick()
