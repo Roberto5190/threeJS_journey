@@ -31,6 +31,11 @@ mesh.scale.y = .5
 mesh.scale.z = .4
 mesh.scale.set(2, .5, .4)
 
+//Rotation
+mesh.rotation.reorder('YXZ')
+mesh.rotation.x = Math.PI * .25
+mesh.rotation.y = Math.PI * .25 //media rotación = PI
+
 // Sizes
 const sizes = {
     with: 800,
