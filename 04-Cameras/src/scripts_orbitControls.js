@@ -10,15 +10,6 @@ const sizes = {
     height: 600
 }
 
-// Cursor
-const cursor = {
-    x: 0,
-    y: 0
-}
-window.addEventListener('mousemove', (e) => {
-    cursor.x = e.clientX / sizes.width - .5 //de esta manera el valor va de -0.5 a 0.5
-    cursor.y = - (e.clientY / sizes.height - .5)
-})
 
 
 // Canvas
@@ -47,7 +38,9 @@ camera.lookAt(cube.position)
 scene.add(camera)
 
 // Controls
-const controls = new OrbitControls(camera, canvas)
+const controls = new OrbitControls(camera, canvas) // OrbitControls(camera, DOM element)
+controls.target.y = 1 //cambiamos el target por defecto
+controls.update() //actualizamos los controles
 
 //Renderer
 const renderer = new THREE.WebGLRenderer({
