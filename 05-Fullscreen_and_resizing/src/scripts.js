@@ -3,9 +3,22 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 // Sizes
 const sizes = {
-    width: 800,
-    height: 600
+    width: window.innerWidth,
+    height: window.innerHeight
 }
+// handle resize
+window.addEventListener('resize', () => {
+    // Update resize
+    sizes.width = window.innerWidth
+    sizes.height = window.innerHeight
+
+    // Update camera
+    camera.aspect = sizes.width / sizes.height
+    camera.updateProjectionMatrix()
+
+    // Update renderer
+    renderer.setSize(sizes.width, sizes.height)
+} )
 
 
 // Canvas 
@@ -47,8 +60,6 @@ const tick = () => {
     
     //Clock
     const elapsedTime = clock.getElapsedTime(1)
-    
-    // Update Objects
 
     // Update controls
     controls.update()
