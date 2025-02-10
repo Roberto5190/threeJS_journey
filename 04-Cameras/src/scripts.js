@@ -1,6 +1,7 @@
 
 
 import * as  THREE from 'three'
+import { cloneUniformsGroups } from 'three/src/renderers/shaders/UniformsUtils.js'
 
 
 // Sizes
@@ -76,8 +77,13 @@ const tick = () => {
     // cube.rotation.y = elapsedTime
 
     // Update Camera
-    camera.position.x = cursor.x * 10
-    camera.position.y = cursor.y * 10
+    camera.position.x = Math.sin(cursor.x * Math.PI * 2) * 3
+    camera.position.z = Math.cos(cursor.x * Math.PI * 2) * 3
+    camera.position.y = cursor.y * 5
+
+    // // Move the camera with the cursor
+    // camera.position.x = cursor.x * 10
+    // camera.position.y = cursor.y * 10
     camera.lookAt(cube.position)
 
     //Render
