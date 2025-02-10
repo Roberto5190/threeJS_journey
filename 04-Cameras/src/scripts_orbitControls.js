@@ -39,8 +39,11 @@ scene.add(camera)
 
 // Controls
 const controls = new OrbitControls(camera, canvas) // OrbitControls(camera, DOM element)
-controls.target.y = 1 //cambiamos el target por defecto
-controls.update() //actualizamos los controles
+controls.enableDamping = true
+// controls.target.y = 1 //cambiamos el target por defecto
+// controls.update() //actualizamos los controles
+
+
 
 //Renderer
 const renderer = new THREE.WebGLRenderer({
@@ -63,7 +66,8 @@ const tick = () => {
     // Update Objects
     // cube.rotation.y = elapsedTime
 
-    // Update Camera
+    // Update Controls
+    controls.update()
 
 
 
