@@ -16,7 +16,7 @@ const cursor = {
 }
 window.addEventListener('mousemove', (e) => {
     cursor.x = e.clientX / sizes.width - .5 //de esta manera el valor va de -0.5 a 0.5
-    cursor.y = e.clientY / sizes.height - .5
+    cursor.y = - (e.clientY / sizes.height - .5)
 })
 
 
@@ -76,8 +76,9 @@ const tick = () => {
     // cube.rotation.y = elapsedTime
 
     // Update Camera
-    camera.position.x = cursor.x
-    camera.position.y = cursor.y
+    camera.position.x = cursor.x * 10
+    camera.position.y = cursor.y * 10
+    camera.lookAt(cube.position)
 
     //Render
     renderer.render(scene, camera)
