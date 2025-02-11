@@ -53,12 +53,26 @@ const scene = new THREE.Scene()
 
 
 // Objects
-const cube = new THREE.Mesh(
-    new THREE.BoxGeometry(1, 1, 1, 5, 5, 5),
-    new THREE.MeshBasicMaterial({ color: 0xff0000 })
-)
+// const geometry = new THREE.BoxGeometry(1, 1, 1, 5, 5, 5)
+const positionArray = new Float32Array([
+    0, 0, 0,  //first vertex position (x, y, z)
+    0, 1, 0,  //second vertex position (x, y, z)
+    1, 0, 0   //third vertex position (x, y, z)
+])
 
-scene.add(cube)
+const positionAttribute = new THREE.BufferAttribute(positionArray, 3)
+
+const geometry = new THREE.BufferGeometry()
+geometry.setAttribute('position', positionAttribute)
+
+const material =     new THREE.MeshBasicMaterial({ 
+    color: 0xff0000,
+    wireframe: true
+})
+
+const mesh = new THREE.Mesh(geometry, material)
+
+scene.add(mesh)
 
 
 
