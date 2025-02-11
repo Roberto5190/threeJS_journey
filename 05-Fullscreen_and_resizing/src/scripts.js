@@ -18,6 +18,7 @@ window.addEventListener('resize', () => {
 
     // Update renderer
     renderer.setSize(sizes.width, sizes.height)
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)) //configuramos el pixel ratio entre el valor del dispositivo y 2
 } )
 
 
@@ -50,6 +51,7 @@ const renderer = new THREE.WebGLRenderer({
     canvas: canvas
 })
 renderer.setSize(sizes.width, sizes.height)
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)) //configuramos el pixel ratio entre el valor del dispositivo y 2
 
 
 // Clock
