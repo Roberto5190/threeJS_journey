@@ -6,6 +6,7 @@ const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
 }
+
 // handle resize
 window.addEventListener('resize', () => {
     // Update resize
@@ -20,6 +21,30 @@ window.addEventListener('resize', () => {
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)) //configuramos el pixel ratio entre el valor del dispositivo y 2
 } )
+
+// Handle fullscreen
+window.addEventListener('dblclick', () => {
+
+    const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement
+
+    if (!fullscreenElement) {
+
+        if(canvas.requestFullscreen){
+
+            canvas.requestFullscreen()
+
+        } else if(canvas.webkitRequestFullscreen) {
+
+            canvas.webkitRequestFullscreen()
+        }
+
+    } else {
+        document.exitFullscreen()
+    }
+
+    
+})
+
 
 
 // Canvas 
