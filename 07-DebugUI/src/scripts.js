@@ -1,5 +1,11 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import GUI from 'lil-gui'
+
+
+// Debug
+const gui = new GUI()
+
 
 // Sizes
 const sizes = {
@@ -55,6 +61,13 @@ const torus = new THREE.Mesh(geometry, material);
 
 scene.add(torus);
 
+
+gui
+  .add(torus.position, 'y')
+  .min(-3)
+  .max(3)
+  .step(.01)
+  .name('ellevation')
 
 
 //Camera
