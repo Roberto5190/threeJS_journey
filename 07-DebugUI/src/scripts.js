@@ -1,6 +1,8 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import GUI from 'lil-gui'
+import gsap from 'gsap'
+
 
 
 // Debug
@@ -81,11 +83,15 @@ gui
 gui
   .addColor(debugObject, 'color')
   .onChange(() => {
-    material.color.set(debugObject.color)
+    material.color.set(debugObject.color) //enviamos al material.color el debugObject.color cuando cambie
   })
 
+debugObject.spin = () => {
+  gsap.to(torus.rotation, {y: torus.rotation.y + Math.PI * 2})
+}
 
-
+gui
+  .add(debugObject, 'spin')
 
 //Camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
@@ -116,7 +122,7 @@ const tick = () => {
     // Clock
     const elapsedTime = clock.getElapsedTime(1)
 
-    torus.rotation.y = elapsedTime
+    // torus.rotation.y = elapsedTime
 
     // Controls
     controls.update()
