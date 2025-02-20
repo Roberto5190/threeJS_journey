@@ -67,7 +67,18 @@ gui
   .min(-3)
   .max(3)
   .step(.01)
-  .name('ellevation')
+  .name('elevation')
+
+
+gui
+  .add(torus, 'visible')
+
+gui 
+  .add(torus.material, 'wireframe')
+
+gui
+  .addColor(torus.material, 'color')
+
 
 
 //Camera
