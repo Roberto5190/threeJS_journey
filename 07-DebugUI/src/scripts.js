@@ -6,6 +6,7 @@ import GUI from 'lil-gui'
 // Debug
 const gui = new GUI()
 
+const debugObject = {}
 
 // Sizes
 const sizes = {
@@ -55,8 +56,9 @@ const canvas = document.querySelector("canvas.webgl");
 const scene = new THREE.Scene();
 
 // Objects
+debugObject.color = '#e66565'
 const geometry = new THREE.TorusGeometry(1, .25, 32);
-const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+const material = new THREE.MeshBasicMaterial({ color: debugObject.color });
 const torus = new THREE.Mesh(geometry, material);
 
 scene.add(torus);
