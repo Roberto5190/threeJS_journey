@@ -79,7 +79,11 @@ gui
   .add(torus.material, 'wireframe')
 
 gui
-  .addColor(torus.material, 'color')
+  .addColor(debugObject, 'color')
+  .onChange(() => {
+    material.color.set(debugObject.color)
+  })
+
 
 
 
